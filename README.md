@@ -1,16 +1,6 @@
-# finalforum
+# FinalForum Recode Branch
 FinalForum is an open-source forum engine  
-Current version: 0.0.4 Beta
+Current recode version: 0.0.1 Beta
 
-# Main Functions
-Multiple languages (you can add them)  
-Create threads  
-Reply to threads  
-Profile comments  
-Installation page
-API for third parties
-
-# Installation
-Unpack finalforum-master.zip on your server.  
-Visit your website (e.g. finalforum.com)  
-Follow the instructions
+# Functions recoded
+Setted up project
