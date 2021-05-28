@@ -20,5 +20,6 @@
       <!-- FOOTER START -->
       <? require_once('client_resources/view/footer.php'); ?>
       <!-- FOOTER END -->
+    </div>
   </body>
 </html>

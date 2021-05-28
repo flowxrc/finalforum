@@ -24,11 +24,13 @@ if (!empty($_SESSION['username'])) {
 
       <!-- FORM START -->
       <form method="post">
-        <h4><?= $phrases['header_auth'] ?></h4>
+        <h4><?= $phrases['header_reg'] ?></h4>
         <input placeholder="<?= $phrases['form_username'] ?>" id="ff_username" name="ff_username" class="form-control text-ltr" size="70" style="margin-bottom: 15px;">
+        <input placeholder="<?= $phrases['form_email'] ?>" id="ff_email" name="ff_email" class="form-control text-ltr" size="70" style="margin-bottom: 15px;">
         <input placeholder="<?= $phrases['form_password'] ?>" id="ff_password" name="ff_password" type="password" class="form-control text-ltr" size="70" style="margin-bottom: 15px;">
-        <button class="btn btn-primary ml-1 flex-grow-0 mr-auto" name="ff_login" id="ff_login" type="submit"><?= $phrases['button_auth'] ?></button>
-          <a href="/pages/register"><?= $phrases['notify_register'] ?></a>
+        <input placeholder="<?= $phrases['form_confirm_password'] ?>" id="ff_c_password" name="ff_c_password" type="password" class="form-control text-ltr" size="70" style="margin-bottom: 15px;">
+        <button class="btn btn-primary ml-1 flex-grow-0 mr-auto" name="ff_register" id="ff_register" type="submit"><?= $phrases['button_register'] ?></button>
+        <a href="/pages/login"><?= $phrases['notify_login'] ?></a>
       </form>
       <!-- FORM END -->
 
