@@ -17,6 +17,37 @@
       </div>
       <!-- HEADER END -->
 
+      <!-- CONTENT START -->
+      <?
+      if (!empty($_SESSION['username'])) {
+        ?>
+        <div class='bg-light p-3 mb-3'>
+          <h3 class='m-0' style="display: inline;"><?= $phrases['notify_threads'] ?></h3>
+          <form method="post" style="display: inline; float: right;" action="/pages/create_thread">
+            <button class="btn btn-primary ml-1 flex-grow-0 mr-auto" type="submit"><?= $phrases['button_create_thread'] ?></button>
+          </form>
+        </div>
+        <?
+      }
+      else {
+        ?>
+        <div class='bg-light p-3 mb-3'>
+          <h3 class='m-0' style="display: inline;"><?= $phrases['notify_threads'] ?></h3>
+          <form method="post" style="display: inline; float: right;" action="/pages/register">
+            <button class="btn btn-primary ml-1 flex-grow-0 mr-auto" type="submit"><?= $phrases['button_register'] ?></button>
+          </form>
+        </div>
+        <?
+      }
+      ?>
+
+      <?
+      if (list_threads($mysql_connection) == false) {
+        echo $phrases['notify_nothreads'];
+      }
+      ?>
+      <!-- CONTENT END -->
+
       <!-- FOOTER START -->
       <? require_once('client_resources/view/footer.php'); ?>
       <!-- FOOTER END -->

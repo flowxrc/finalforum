@@ -1,14 +1,12 @@
 <?
 require_once('../server_resources/client_includes.php');
-if (empty($_SESSION['username'])) {
-  header('location: /pages/login');
-}
+$curThread = get_thread_information($mysql_connection, $_GET['id']);
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title><?= $config['board_title'] ?> - <?= $phrases['page_profile'] ?></title>
+    <title><?= $config['board_title'] ?> - <?= $curThread['name'] ?></title>
     <link rel="stylesheet" href="/client_resources/css/main.css">
   </head>
   <body>
@@ -23,12 +21,10 @@ if (empty($_SESSION['username'])) {
       <!-- HEADER END -->
 
       <div class='bg-light p-3 mb-3'>
-        <h3 class='m-0'><?= $phrases['header_profile'] ?> - <?= $_SESSION['username'] ?></h3>
-        <small><?= $phrases['caption_regdate'] ?> - <?= $_SESSION['regdate'] ?></small>
-        <br>
-        <form method="post">
-          <button class="btn btn-primary ml-1 flex-grow-0 mr-auto" name="ff_logout" id="ff_logout" type="submit"><?= $phrases['button_logout'] ?></button>
-        </form>
+        <h3 class='m-0'><?= $curThread['name'] ?></h3>
+        <small><?= $phrases['caption_regdate'] ?> - <?= $curThread['creation_date'] ?> by <a href="/pages/users?id=<?= DatabaseRequests::get_value_by_filter($mysql_connection, "web_users", "id", "username", $curThread['author'])  ?>"><?= $curThread['author'] ?></a></small>
+        <br><br>
+        <p class='m-0'><?= $curThread['content'] ?></p>
       </div>
 
       <!-- FOOTER START -->
